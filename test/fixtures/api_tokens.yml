@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  expires_at: 2017-06-21 17:03:26
+  onwer_type: MyString
+  owner_id: 1
+
+two:
+  token: MyString
+  expires_at: 2017-06-21 17:03:26
+  onwer_type: MyString
+  owner_id: 1

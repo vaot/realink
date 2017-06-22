@@ -6,9 +6,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body class='amber lighten-4'>
+    <% if user_signed_in? %>
+      <h1>Helllooooooo</h1>
+    <% end %>
+   <!--  <nav>
+      <div class="nav-wrapper indigo darken-1">
+        <a href="#!" class="brand-logo center">Realink</a>
+        <ul class="left">
+          <li><a href="sass.html">Home</a></li>
+          <li><a href="sass.html">Settings</a></li>
+        </ul>
+      </div>
+    </nav> -->
+
+    <div class='container'>
+      <%= yield %>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   </body>
 </html>
