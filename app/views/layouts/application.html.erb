@@ -14,7 +14,11 @@
 
   <body class='amber lighten-4'>
     <% if user_signed_in? %>
-      <h1>Helllooooooo</h1>
+      <h1>Welcome back <%= current_user.email %></h1>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <h1>See ya, hope to see you soon.</h1>
+      <%= link_to('Login', new_user_session_path)  %>
     <% end %>
    <!--  <nav>
       <div class="nav-wrapper indigo darken-1">

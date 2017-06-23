@@ -1,6 +1,0 @@
-development:
-  encoding: utf8
-  adapter: mysql2
-  database: realink_development
-  username: root
-  password:
