@@ -5,4 +5,12 @@ Rails.application.routes.draw do
 
     get 'news', to: 'news#index'
 
+
+
+  get '/news_settings',to:'news_settings#index'
+
+
+  get '/notifications', to: 'notifications#index'
+  get '/notifications/:id', to: 'notifications#show'
+
 end
