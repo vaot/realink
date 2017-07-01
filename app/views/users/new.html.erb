@@ -32,6 +32,11 @@
               <div class="col s12 m4 l8">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true %>
+
+                <% if @user.errors[:email].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:email].join(", ") %></span>
+                <% end %>
+
               </div>
 
             </div>
@@ -43,8 +48,14 @@
                 <i class="small material-icons black-text">lock_outline</i>
               </div>
               <div class='col s12 m4 l8'>
-                <%= f.password_field :password, autocomplete: "off" %>
                 <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+
+
+                <% if @user.errors[:password].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:password].join(", ") %></span>
+                <% end %>
+
               </div>
             </div>
 
@@ -52,8 +63,15 @@
               <div class='col s12 m4 l1'>
               </div>
               <div class='col s12 m4 l8'>
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
                 <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+
+                <% if @user.errors[:password_confirmation].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:password_confirmation].join(", ") %></span>
+                <% end %>
+
+
               </div>
             </div>
           </div>
