@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 RUN mkdir -p tmp/pids tmp/sockets tmp/cache tmp/sessions
 RUN mkdir log
 
+COPY /config/database.yml.template /usr/src/app/config/database.yml
 COPY . /usr/src/app
 RUN ["/bin/sh", "-c", "bundle install"]
 

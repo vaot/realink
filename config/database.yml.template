@@ -2,5 +2,13 @@ development:
   encoding: utf8
   adapter: mysql2
   database: realink_development
-  username:
-  password:
+  username: root
+  password: <%= ENV["MYSQL_PASSWORD"] %>
+  host: mysql
+production:
+  encoding: utf8
+  adapter: mysql2
+  database: realink_production
+  username: root
+  password: <%= ENV["MYSQL_PASSWORD"] %>
+  host: mysql

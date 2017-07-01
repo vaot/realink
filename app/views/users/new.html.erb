@@ -1,0 +1,66 @@
+<%= form_for(@user, url: users_path, method: :post) do |f| %>
+  <div class='container'>
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Sign up</span>
+        <div class="field">
+            <div class='row'>
+
+              <div class="col s12 m4 l1">
+                <i class="small material-icons black-text">person_pin</i>
+              </div>
+
+              <div class="col s12 m4 l8">
+                <%= f.label :name %><br />
+                <%= f.text_field :name %>
+
+                <% if @user.errors[:name].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:name].join(", ") %></span>
+                <% end %>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="field">
+            <div class='row'>
+
+              <div class="col s12 m4 l1">
+                <i class="small material-icons black-text">email</i>
+              </div>
+
+              <div class="col s12 m4 l8">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="field">
+            <div class='row'>
+              <div class='col s12 m4 l1'>
+                <i class="small material-icons black-text">lock_outline</i>
+              </div>
+              <div class='col s12 m4 l8'>
+                <%= f.password_field :password, autocomplete: "off" %>
+                <%= f.label :password %><br />
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='col s12 m4 l1'>
+              </div>
+              <div class='col s12 m4 l8'>
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                <%= f.label :password_confirmation %><br />
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="card-action">
+        <%= f.submit "Sign up", class: 'waves-effect waves-light btn' %>
+      </div>
+    </div>
+  </div>
+<% end %>
