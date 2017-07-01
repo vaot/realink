@@ -13,7 +13,7 @@ COPY . /usr/src/app
 RUN ["/bin/sh", "-c", "bundle install"]
 
 # Precompile assets
-RUN bundle exec rake assets:precompile --trace
+# RUN bundle exec rake assets:precompile --trace
 
 # Publish port 80
 EXPOSE 3000
