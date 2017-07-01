@@ -32,6 +32,11 @@
               <div class="col s12 m4 l8">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true %>
+
+                <% if @user.errors[:email].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:email].join(", ") %></span>
+                <% end %>
+
               </div>
 
             </div>
@@ -45,6 +50,11 @@
               <div class='col s12 m4 l8'>
                 <%= f.password_field :password, autocomplete: "off" %>
                 <%= f.label :password %><br />
+
+                <% if @user.errors[:password].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:password].join(", ") %></span>
+                <% end %>
+
               </div>
             </div>
 
@@ -54,6 +64,12 @@
               <div class='col s12 m4 l8'>
                 <%= f.password_field :password_confirmation, autocomplete: "off" %>
                 <%= f.label :password_confirmation %><br />
+
+                <% if @user.errors[:password_confirmation].present? %>
+                  <span class="red-text accent-4"><%= @user.errors[:password_confirmation].join(", ") %></span>
+                <% end %>
+
+
               </div>
             </div>
           </div>
