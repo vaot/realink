@@ -9,6 +9,8 @@ RUN mkdir -p tmp/pids tmp/sockets tmp/cache tmp/sessions
 RUN mkdir log
 
 COPY /config/database.yml.template /usr/src/app/config/database.yml
+COPY /config/redis.yml.template /usr/src/app/config/redis.yml
+
 COPY . /usr/src/app
 RUN ["/bin/sh", "-c", "bundle install"]
 
