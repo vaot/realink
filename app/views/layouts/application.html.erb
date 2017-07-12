@@ -13,53 +13,42 @@
   </head>
 
   <body class='indigo lighten-5'>
-  <nav class="nav-extended green accent-4">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">
-        <%= image_tag("logo.png", class: 'app-logo') %>
-      </a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a id="filters_toggler" href="#filters_nav">Filters</a></li>
-        <li><%= link_to('News Settings', news_settings_path) %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to("Hello @#{current_user.name}", "javascript:void(0)") %></li>
-          <li><%= link_to("Log out", logout_path, method: :delete) %></li>
-        <% else %>
-          <li><%= link_to('Sign in', new_session_path) %></li>
+    <nav class="nav-extended indigo darken-4">
+      <div class="nav-wrapper">
+        <%= link_to root_path, class: 'brand-logo' do %>
+          <span class="app-logo">Realink</span>
         <% end %>
-      </ul>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a id="filters_toggler" href="#filters_nav">Filters</a></li>
+          <li><%= link_to('News Settings', news_settings_path) %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to("Hello @#{current_user.name}", "javascript:void(0)") %></li>
+            <li><%= link_to("Log out", logout_path, method: :delete) %></li>
+          <% else %>
+            <li><%= link_to('Sign in', new_session_path) %></li>
+          <% end %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
 
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-
-    <div id="filters_nav" style="display: none;" class="nav-content">
-      <ul class="tabs tabs-transparent"><li class="tab">News Filters:</a></li>
-        <li class="tab"><a href="#All">All</a></li>
-        <li class="tab"><a href="#World">World</a></li>
-        <li class="tab"><a href="#US">US</a></li>
-        <li class="tab"><a href="#Sports">Sports</a></li>
-        <li class="tab"><a href="#Entertainment">Entertainment</a></li>
-        <li class="tab"><a href="#Politics">Politics</a></li>
-        <li class="tab"><a href="#Science">Science</a></li>
-        <li class="tab"><a href="#Weather">Weather</a></li>
-
-        <li class="tab"><a href="#test1">Test 1</a></li>
-        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
-        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
-        <li class="tab"><a href="#test4">Test 4</a></li>
-      </ul>
-    </div>
-
-  </nav>
-  <div id="test1" class="col s12">Test 1</div>
-  <div id="test2" class="col s12">Test 2</div>
-  <div id="test3" class="col s12">Test 3</div>
-  <div id="test4" class="col s12">Test 4</div>
+      <div id="filters_nav" style="display: none;" class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="#All">All</a></li>
+          <li class="tab"><a href="#World">World</a></li>
+          <li class="tab"><a href="#US">US</a></li>
+          <li class="tab"><a href="#Sports">Sports</a></li>
+          <li class="tab"><a href="#Entertainment">Entertainment</a></li>
+          <li class="tab"><a href="#Politics">Politics</a></li>
+          <li class="tab"><a href="#Science">Science</a></li>
+          <li class="tab"><a href="#Weather">Weather</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div class='container'>
       <%= yield %>

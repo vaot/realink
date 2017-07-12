@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  def index
+    redirect_to new_user_path
+  end
+
   def new
     if user_signed_in?
-      redirect_to root_path
-      return
+      redirect_to root_path and return
     end
 
     @user = User.new
@@ -15,7 +18,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 
