@@ -27,7 +27,7 @@ module RssParser
     def parse
       return @parsed if @parsed.present?
 
-      reply = Net::HTTP.get(get_rss_feed_url)
+      reply = Net::HTTP.get(get_rss_feed_uri)
       @parsed ||= RSS::Parser.parse(reply)
     end
 
