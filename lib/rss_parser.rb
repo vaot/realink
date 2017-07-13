@@ -1,0 +1,2 @@
+module RssParser
+end
