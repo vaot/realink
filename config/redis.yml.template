@@ -1,0 +1,19 @@
+development:
+  :main: &development
+    :host: localhost
+    :port: 6379
+    :thread_safe: true
+    :db: 0
+  :sidekiq:
+    <<: *development
+    :db: 1
+production:
+  :main: &production
+    :host: <%= ENV["REDIS_HOST"] %>
+    :port: <%= ENV["REDIS_PORT"] %>
+    :thread_safe: true
+    :db: 0
+  :sidekiq:
+    <<: *production
+    :db: 1
+
