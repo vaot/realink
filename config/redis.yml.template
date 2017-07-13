@@ -9,8 +9,8 @@ development:
     :db: 1
 production:
   :main: &production
-    :host: <%= ENV["REDIS_HOST"] %>
-    :port: <%= ENV["REDIS_PORT"] %>
+    :host: <%= ENV["REDIS_PORT_6379_TCP_ADDR"] %>
+    :port: <%= ENV["REDIS_PORT_6379_TCP_PORT"] %>
     :thread_safe: true
     :db: 0
   :sidekiq:
