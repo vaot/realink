@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to '/news/all'
     else
       @user = User.new
       flash[:error] = "Email or password is invalid!"
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to '/'
   end
 
   private

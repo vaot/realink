@@ -4,24 +4,21 @@
     <title>Realink</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
      <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <base href='/'>
   </head>
-
   <body class='indigo lighten-5'>
     <nav class="nav-extended indigo darken-4">
       <div class="nav-wrapper">
-        <%= link_to root_path, class: 'brand-logo' do %>
+        <%= link_to '/', class: 'brand-logo' do %>
           <span class="app-logo">Realink</span>
         <% end %>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a id="filters_toggler" href="#filters_nav">Filters</a></li>
-          <li><%= link_to('News Settings', news_settings_path) %></li>
           <% if user_signed_in? %>
             <li><%= link_to("Hello @#{current_user.name}", "javascript:void(0)") %></li>
             <li><%= link_to("Log out", logout_path, method: :delete) %></li>
@@ -36,18 +33,20 @@
         </ul>
       </div>
 
-      <div id="filters_nav" style="display: none;" class="nav-content">
-        <ul class="tabs tabs-transparent">
-          <li class="tab"><a href="#All">All</a></li>
-          <li class="tab"><a href="#World">World</a></li>
-          <li class="tab"><a href="#US">US</a></li>
-          <li class="tab"><a href="#Sports">Sports</a></li>
-          <li class="tab"><a href="#Entertainment">Entertainment</a></li>
-          <li class="tab"><a href="#Politics">Politics</a></li>
-          <li class="tab"><a href="#Science">Science</a></li>
-          <li class="tab"><a href="#Weather">Weather</a></li>
-        </ul>
-      </div>
+      <% if user_signed_in? %>
+        <div id="filters_nav" class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <%= generate_tab("all") %>
+            <%= generate_tab("world") %>
+            <%= generate_tab("us") %>
+            <%= generate_tab("sports") %>
+            <%= generate_tab("entertainment") %>
+            <%= generate_tab("politics") %>
+            <%= generate_tab("science") %>
+            <%= generate_tab("weather") %>
+          </ul>
+        </div>
+      <% end %>
     </nav>
 
     <div class='container'>
@@ -56,11 +55,19 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+    <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js' %>
+    <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.js' %>
+    <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-resource.js' %>
+    <%= javascript_include_tag '//cdn.jsdelivr.net/angular.ui-router/0.2.13/angular-ui-router.min.js'%>
+    <%= javascript_include_tag 'application' %>
+
     <script type="text/javascript">
-      jQuery("#filters_toggler").on('click', function(e) {
-        e.preventDefault();
-        $this = jQuery(this);
-        jQuery($this.attr('href')).toggle();
+      jQuery('.tab a').on('click', function(e){
+        var $this = jQuery(this),
+            href = $this.attr('href');
+
+        window.location.replace(href);
       });
     </script>
   </body>

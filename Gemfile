@@ -5,9 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'haml_coffee_assets'
+
+gem 'execjs'
+
 gem 'mysql2'
 
 gem "redis"
+
+gem 'rest-client'
 
 gem 'sidekiq'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

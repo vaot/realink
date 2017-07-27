@@ -6,7 +6,7 @@ module RssParser
     }
 
     def self.name
-      "Reuters"
+      "reuters"
     end
 
     def self.availables

@@ -1,0 +1,12 @@
+.row
+  .col.s12.m7(ng-repeat="val in news track by $index")
+    .card
+      .card-content
+        %span.badge.red.new(data-badge-caption="")
+          {{val.source}}
+        %span.badge.blue.new(data-badge-caption="")
+          {{val.type}}
+        %span.card-title.new(data-badge-caption="")
+          {{val.title}}
+      .card-action
+        %a(ng-click="viewNews(val)" href="javascript:void(0)") View

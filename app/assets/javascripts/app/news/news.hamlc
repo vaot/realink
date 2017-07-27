@@ -1,0 +1,9 @@
+%ul#slide-out.side-nav
+  %li(ng-repeat="type in availableSites")
+    %a(ui-sref="news.list({type: type})") {{ type | capitalize }}
+
+%a.button-collapse(class="waves-effect waves-light btn" data-activates="slide-out")
+  %i.material-icons.left menu
+  More Filters
+
+%div(ui-view)

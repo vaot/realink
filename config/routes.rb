@@ -2,9 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "welcome#index"
 
-  get 'news', to: 'news#index'
+  root to: 'welcome#index'
 
   get '/news_settings',to:'news_settings#index'
 
@@ -24,4 +23,12 @@ Rails.application.routes.draw do
   end if Rails.env.production?
 
   mount Sidekiq::Web => '/sidekiq'
+
+  namespace :api do
+    namespace :v1 do
+      resources :news
+    end
+  end
+
+  get '/*path', to: "news#index"
 end
