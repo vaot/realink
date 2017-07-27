@@ -16,7 +16,7 @@ module NewsHelper
 
   def server_meta
     {
-      available_sites: ["all"] + NewsFilter.types
+      available_sites: ["all"] + ::NewsFilter.types
     }.to_json
   end
 end
