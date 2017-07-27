@@ -6,7 +6,7 @@ module RssParser
       US: "http://www1.cbn.com/rss-cbn-news-US.xml",
       politics: "http://www1.cbn.com/rss-cbn-news-politics.xml",
       finance: "http://www1.cbn.com/rss-cbn-news-finance.xml",
-      health_and_science: "http://www1.cbn.com/rss-cbn-news-health.xml",
+      science: "http://www1.cbn.com/rss-cbn-news-health.xml",
       africa_matters:"http://www1.cbn.com/rss-cbn-blogs-africamatters.xml",
 
 
@@ -17,7 +17,7 @@ module RssParser
     end
 
     def self.availables
-      %i(world US politics finance health_and_science africa_matters)
+      %i(world US politics finance science africa_matters)
     end
   end
 end
