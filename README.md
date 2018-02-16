@@ -10,7 +10,7 @@
 
 ## Overview:
 
-Realink is a web application that pulls relevant news articles from top news sites and ranks them based on popularity. Popularity is judged by where those links are trending on various social network platforms such as Facebook, Twitter, Reddit, etc. Data such as Likes, Retweets, Shares, Comments, are analyzed to predict which links are trending and pushed towards the top of the page, filtering out irrelevant topics.
+Realink is a web application that pulls relevant news articles from top news sites and ranks them based on popularity. Popularity is judged by where those links are trending on various social network platforms such as Facebook, Twitter, Reddit, etc. Like, Retweet, Share, and Comment data are analyzed to predict which links are trending and pushed towards the top of the page, filtering out irrelevant topics.
 
 ## Need and Target Audience:
 
